@@ -1,0 +1,67 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    display: flex;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 450px;
+    width: 343px;
+    padding: 25px;
+    margin: 0 auto;
+}
+
+.display {
+    height: 90px;
+    background-color: #3b3b3b;
+    width: 293px;
+}
+
+button {
+    width: 65.5px;
+    height: 50px;
+    padding: 0;
+}
+
+.btns-cntr {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    width: 293px;
+}
+
+.btns-divider {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.clear-btn,
+.delete-btn {
+    width: 141px;
+    height: 50px;
+}
+
+.numbers-btn-cntr {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 10px;
+    width: 217px;
+}
+
+.operators-btn-cntr {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+}

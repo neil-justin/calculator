@@ -6,29 +6,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
     <script src="main.js"></script>
 </head>
 
 <body>
-    <div></div>
-    <button class="clear-btn">Clear</button>
-    <button class="delete-btn">Delete</button>
-    <button class="operators-btn" value="+">+</button>
-    <button class="operators-btn" value="-">-</button>
-    <button class="operators-btn" value="*">×</button>
-    <button class="operators-btn" value="/">÷</button>
-    <button class="decimal-btn" value=".">.</button>
-    <button class="equal-btn" value="=">=</button>
-    <button class="numbers-btn" value="0">0</button>
-    <button class="numbers-btn" value="1">1</button>
-    <button class="numbers-btn" value="2">2</button>
-    <button class="numbers-btn" value="3">3</button>
-    <button class="numbers-btn" value="4">4</button>
-    <button class="numbers-btn" value="5">5</button>
-    <button class="numbers-btn" value="6">6</button>
-    <button class="numbers-btn" value="7">7</button>
-    <button class="numbers-btn" value="8">8</button>
-    <button class="numbers-btn" value="9">9</button>
+    <div class="calculator">
+        <div class="display"></div>
+        <div class="btns-cntr">
+            <div class="btns-divider">
+                <button class="clear-btn">Clear</button>
+                <button class="delete-btn">Delete</button>
+            </div>
+            <div class="btns-divider">
+                <div class="numbers-btn-cntr">
+                    <button class="numbers-btn" value="9">9</button>
+                    <button class="numbers-btn" value="8">8</button>
+                    <button class="numbers-btn" value="7">7</button>
+                    <button class="numbers-btn" value="6">6</button>
+                    <button class="numbers-btn" value="5">5</button>
+                    <button class="numbers-btn" value="4">4</button>
+                    <button class="numbers-btn" value="3">3</button>
+                    <button class="numbers-btn" value="2">2</button>
+                    <button class="numbers-btn" value="1">1</button>
+                    <button class="decimal-btn" value=".">.</button>
+                    <button class="numbers-btn" value="0">0</button>
+                    <button class="equal-btn" value="=">=</button>
+                </div>
+                <div class="operators-btn-cntr">
+                    <button class="operators-btn" value="+">+</button>
+                    <button class="operators-btn" value="-">-</button>
+                    <button class="operators-btn" value="*">×</button>
+                    <button class="operators-btn" value="/">÷</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>

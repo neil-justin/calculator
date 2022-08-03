@@ -23,9 +23,26 @@ body {
 }
 
 .display {
+    display: flex;
+    flex-direction: column;
     height: 90px;
-    background-color: #3b3b3b;
+    background-color: lightgray;
     width: 293px;
+    padding: 15px;
+}
+
+.stored-value,
+.current-value {
+    text-align: end;
+}
+
+.stored-value {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.current-value {
+    font-size: 30px;
 }
 
 button {

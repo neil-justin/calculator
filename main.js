@@ -1,3 +1,27 @@
+let currentVal = 0;
+const currentValDiv = document.querySelector('.current-value');
+const numbersBtn = document.querySelectorAll('.numbers-btn');
+numbersBtn.forEach(numberBtn => {
+    numberBtn.addEventListener('click', () => {
+        if (currentValDiv.innerText === '0') {
+            if (numberBtn.value === '0') {
+                currentValDiv.textContent = 0;
+            } else {
+                currentValDiv.textContent = `${numberBtn.value}`;
+            }
+        } else {
+            if (currentValDiv.innerText.length > 16) {
+                numbersBtn.forEach(numberBtn => {
+                    numberBtn.disabled = true;
+                });
+            } else {
+                currentValDiv.textContent += `${numberBtn.value}`;
+            }
+        }
+        currentVal = parseInt(currentValDiv.textContent);
+    });
+});
+
 function add(x, y) {
     return x + y;
 }
@@ -13,11 +37,3 @@ function multiply(x, y) {
 function divide(x, y) {
     return x / y;
 }
-
-const currentValueDiv = document.querySelector('.current-value');
-const numbersBtn = document.querySelectorAll('.numbers-btn');
-numbersBtn.forEach(number => {
-    number.addEventListener('click', () => {
-        currentValueDiv.textContent = `${number.value}`
-    });
-});

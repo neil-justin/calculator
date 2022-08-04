@@ -1,5 +1,5 @@
-let currentVal = 0;
 const currentValDiv = document.querySelector('.current-value');
+const currentVal = parseInt(currentValDiv);
 const numbersBtn = document.querySelectorAll('.numbers-btn');
 numbersBtn.forEach(numberBtn => {
     numberBtn.addEventListener('click', () => {
@@ -18,7 +18,6 @@ numbersBtn.forEach(numberBtn => {
                 currentValDiv.textContent += `${numberBtn.value}`;
             }
         }
-        currentVal = parseInt(currentValDiv.textContent);
     });
 });
 

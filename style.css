@@ -45,12 +45,6 @@ body {
     font-size: 30px;
 }
 
-button {
-    width: 65.5px;
-    height: 50px;
-    padding: 0;
-}
-
 .btns-cntr {
     display: flex;
     flex-direction: column;
@@ -60,25 +54,18 @@ button {
 
 .btns-divider {
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
     gap: 10px;
+}
+
+button {
+    width: 65.5px;
+    height: 50px;
+    padding: 0;
 }
 
 .clear-btn,
 .delete-btn {
     width: 141px;
     height: 50px;
-}
-
-.numbers-btn-cntr {
-    display: flex;
-    flex-flow: row wrap;
-    gap: 10px;
-    width: 217px;
-}
-
-.operators-btn-cntr {
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 10px;
 }

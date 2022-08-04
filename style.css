@@ -37,11 +37,13 @@ body {
 }
 
 .stored-value {
-    font-size: 15px;
+    height: 25px;
+    font-size: 18px;
     margin-bottom: 10px;
 }
 
 .current-value {
+    height: 30px;
     font-size: 30px;
 }
 

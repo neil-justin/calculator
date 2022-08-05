@@ -60,26 +60,29 @@ operatorsBtn.forEach(operatorBtn => {
     })
 })
 
-let result;
 const equalButton = document.querySelector('.equal-btn');
 equalButton.addEventListener('click', () => {
-    result = operate(operatorVal);
+    operate(operatorVal);
 })
 
 function operate(operator) {
     switch (operator) {
         case '+':
             storedValDiv.textContent = `${currentVal} + ${currentVal2} =`;
-            return currentValDiv.textContent = add(parseInt(currentVal), parseInt(currentVal2));
+            currentVal = add(parseInt(currentVal), parseInt(currentVal2));
+            return currentValDiv.textContent = currentVal;
         case '-':
             storedValDiv.textContent = `${currentVal} - ${currentVal2} =`;
-            return currentValDiv.textContent = subtract(parseInt(currentVal), parseInt(currentVal2));
+            currentVal = subtract(parseInt(currentVal), parseInt(currentVal2));
+            return currentValDiv.textContent = currentVal;
         case '*':
             storedValDiv.textContent = `${currentVal} × ${currentVal2} =`;
-            return currentValDiv.textContent = multiply(parseInt(currentVal), parseInt(currentVal2));
+            currentVal = multiply(parseInt(currentVal), parseInt(currentVal2));
+            return currentValDiv.textContent = currentVal;
         case '/':
             storedValDiv.textContent = `${currentVal} ÷ ${currentVal2} =`;
-            return currentValDiv.textContent = divide(parseInt(currentVal), parseInt(currentVal2));
+            currentVal = divide(parseInt(currentVal), parseInt(currentVal2));
+            return currentValDiv.textContent = currentVal;
     }
 }
 

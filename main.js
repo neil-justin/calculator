@@ -1,10 +1,19 @@
 let currentVal = 0;
+let currentVal2;
 const currentValDiv = document.querySelector('.current-value');
 const numbersBtn = document.querySelectorAll('.numbers-btn');
 numbersBtn.forEach(numberBtn => {
     numberBtn.addEventListener('click', () => {
         if (currentValDiv.innerText === '0') {
-            if (numberBtn.value === '0') {
+            if (storedValDiv.textContent) {
+                if (currentValDiv.textContent === currentVal) {
+                    currentVal2 = `${numberBtn.value}`;
+                    currentValDiv.textContent = currentVal2;
+                } else {
+                    currentVal2 += `${numberBtn.value}`;
+                    currentValDiv.textContent = currentVal2;
+                }
+            } else if (numberBtn.value === '0') {
                 currentVal = 0;
                 currentValDiv.textContent = currentVal;
             } else {
@@ -12,7 +21,15 @@ numbersBtn.forEach(numberBtn => {
                 currentValDiv.textContent = currentVal;
             }
         } else {
-            if (currentValDiv.innerText.length > 16) {
+            if (storedValDiv.textContent) {
+                if (currentValDiv.textContent === currentVal) {
+                    currentVal2 = `${numberBtn.value}`;
+                    currentValDiv.textContent = currentVal2;
+                } else {
+                    currentVal2 += `${numberBtn.value}`;
+                    currentValDiv.textContent = currentVal2;
+                }
+            } else if (currentValDiv.innerText.length > 16) {
                 numbersBtn.forEach(numberBtn => {
                     numberBtn.disabled = true;
                 });
@@ -34,10 +51,6 @@ operatorsBtn.forEach(operatorBtn => {
         storedValDiv.textContent = `${currentVal} ${operatorBtn.innerText}`;
     })
 })
-
-let currentVal2;
-
-
 
 function add(x, y) {
     return x + y;

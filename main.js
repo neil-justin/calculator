@@ -6,7 +6,11 @@ numbersBtn.forEach(numberBtn => {
     numberBtn.addEventListener('click', () => {
         if (currentValDiv.innerText === '0') {
             if (storedValDiv.textContent) {
-                if (currentValDiv.textContent === currentVal) {
+                if (currentValDiv.innerText.length > 16) {
+                    numbersBtn.forEach(numberBtn => {
+                        numberBtn.disabled = true;
+                    });
+                } else if (currentValDiv.textContent === currentVal) {
                     currentVal2 = `${numberBtn.value}`;
                     currentValDiv.textContent = currentVal2;
                 } else {
@@ -22,7 +26,11 @@ numbersBtn.forEach(numberBtn => {
             }
         } else {
             if (storedValDiv.textContent) {
-                if (currentValDiv.textContent === currentVal) {
+                if (currentValDiv.innerText.length > 16) {
+                    numbersBtn.forEach(numberBtn => {
+                        numberBtn.disabled = true;
+                    });
+                } else if (currentValDiv.textContent === currentVal) {
                     currentVal2 = `${numberBtn.value}`;
                     currentValDiv.textContent = currentVal2;
                 } else {
@@ -51,6 +59,29 @@ operatorsBtn.forEach(operatorBtn => {
         storedValDiv.textContent = `${currentVal} ${operatorBtn.innerText}`;
     })
 })
+
+let result;
+const equalButton = document.querySelector('.equal-btn');
+equalButton.addEventListener('click', () => {
+    result = operate(operatorVal);
+})
+
+function operate(operator) {
+    switch (operator) {
+        case '+':
+            storedValDiv.textContent = `${currentVal} + ${currentVal2} =`;
+            return currentValDiv.textContent = add(parseInt(currentVal), parseInt(currentVal2));
+        case '-':
+            storedValDiv.textContent = `${currentVal} - ${currentVal2} =`;
+            return currentValDiv.textContent = subtract(parseInt(currentVal), parseInt(currentVal2));
+        case '*':
+            storedValDiv.textContent = `${currentVal} × ${currentVal2} =`;
+            return currentValDiv.textContent = multiply(parseInt(currentVal), parseInt(currentVal2));
+        case '/':
+            storedValDiv.textContent = `${currentVal} ÷ ${currentVal2} =`;
+            return currentValDiv.textContent = divide(parseInt(currentVal), parseInt(currentVal2));
+    }
+}
 
 function add(x, y) {
     return x + y;

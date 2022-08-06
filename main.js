@@ -41,40 +41,55 @@ numbersBtn.forEach(numberBtn => {
                 displayedValue.textContent = operand2;
             }
         }
+
+        if (typeof numberBtn.value === 'string') {
+            operand1 = parseInt(operand1);
+            operand2 = parseInt(operand2);
+        }
     });
 });
 
 let operator;
+// Use to display the main symbol of an operator (e.g. display "÷" instead of "/" for division)
+let operatorSymbol;
 const operatorsBtn = document.querySelectorAll('.operators-btn');
 operatorsBtn.forEach(operatorBtn => {
     operatorBtn.addEventListener('click', () => {
+        operatorSymbol = operatorBtn.innerText;
+        // evaluate complex expression (e.g. 2 - 3 + 1)
+        if (operand2 && (operator === operatorBtn.value || operator !== operatorBtn.value)) {
+            operate(operator);
+            storedValue.textContent = `${operand1} ${operatorSymbol}`;
+            // unexpected result will occur if this variable wasn't re-initialize
+            operand2 = '';
+        } else {
+            storedValue.textContent = `${operand1} ${operatorSymbol}`;
+        }
+        /* this has to be placed at the bottom of this block in order for complex expression,
+            that has dissimilar operator (e.g. 2 + 3 - 2), to get evaluated correctly */
         operator = operatorBtn.value;
-        storedValue.textContent = `${operand1} ${operatorBtn.innerText}`;
     });
 });
 
 const equalButton = document.querySelector('.equal-btn');
 equalButton.addEventListener('click', () => {
+    storedValue.textContent = `${operand1} ${operatorSymbol} ${operand2} =`;
     operate(operator);
 });
 
 function operate(operator) {
     switch (operator) {
         case '+':
-            storedValue.textContent = `${operand1} + ${operand2} =`;
-            operand1 = add(parseInt(operand1), parseInt(operand2));
+            operand1 = add(operand1, operand2);
             return displayedValue.textContent = operand1;
         case '-':
-            storedValue.textContent = `${operand1} - ${operand2} =`;
-            operand1 = subtract(parseInt(operand1), parseInt(operand2));
+            operand1 = subtract(operand1, operand2);
             return displayedValue.textContent = operand1;
         case '*':
-            storedValue.textContent = `${operand1} × ${operand2} =`;
-            operand1 = multiply(parseInt(operand1), parseInt(operand2));
+            operand1 = multiply(operand1, operand2);
             return displayedValue.textContent = operand1;
         case '/':
-            storedValue.textContent = `${operand1} ÷ ${operand2} =`;
-            operand1 = divide(parseInt(operand1), parseInt(operand2));
+            operand1 = divide(operand1, operand2);
             return displayedValue.textContent = operand1;
     }
 }

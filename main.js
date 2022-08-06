@@ -70,9 +70,10 @@ operatorsBtn.forEach(operatorBtn => {
         get evaluated correctly */
         operator = operatorBtn.value;
 
-        if (decimalBtn.disabled) {
-            decimalBtn.disabled = false;
-        }
+        if (decimalBtn.disabled) decimalBtn.disabled = false;
+
+        if (displayedValue.innerText.length > 15) displayedValue.textContent = '';
+        numbersBtn.forEach(numberBtn => numberBtn.disabled = false);
     });
 });
 

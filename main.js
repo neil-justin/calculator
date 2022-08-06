@@ -26,19 +26,23 @@ numbersBtn.forEach(numberBtn => {
             numbersBtn.forEach(numberBtn => {
                 numberBtn.disabled = true;
             });
-        } else if (displayedValue.textContent === '0') {
-            operand1 = `${numberBtn.value}`;
-            displayedValue.textContent = operand1;
-        } else if (storedValue.textContent === '') {
-            operand1 += `${numberBtn.value}`;
-            displayedValue.textContent = operand1;
-        } else {
+        }
+
+        if (storedValue.textContent) {
             if (operand2) {
                 operand2 += `${numberBtn.value}`;
                 displayedValue.textContent = operand2;
             } else {
                 operand2 = `${numberBtn.value}`;
                 displayedValue.textContent = operand2;
+            }
+        } else {
+            if (displayedValue.textContent === '0') {
+                operand1 = `${numberBtn.value}`;
+                displayedValue.textContent = operand1;
+            } else {
+                operand1 += `${numberBtn.value}`;
+                displayedValue.textContent = operand1;
             }
         }
     });

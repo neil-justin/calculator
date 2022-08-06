@@ -15,7 +15,7 @@ function divide(x, y) {
 }
 
 const storedValue = document.querySelector('.stored-value');
-const displayedValue = document.querySelector('.current-value');
+const displayedValue = document.querySelector('.displayed-value');
 
 let operand1 = 0;
 let operand2;
@@ -49,14 +49,15 @@ numbersBtn.forEach(numberBtn => {
 });
 
 let operator;
-// Use to display the main symbol of an operator (e.g. display "÷" instead of "/" for division)
+// will be use to display the main symbol of an operator (e.g. display "÷" instead of "/" for division)
 let operatorSymbol;
 const operatorsBtn = document.querySelectorAll('.operators-btn');
 operatorsBtn.forEach(operatorBtn => {
     operatorBtn.addEventListener('click', () => {
         operatorSymbol = operatorBtn.innerText;
         // evaluate complex expression (e.g. 2 - 3 + 1)
-        if (operand2 && (operator === operatorBtn.value || operator !== operatorBtn.value)) {
+        if (operand2 && (operator === operatorBtn.value ||
+            operator !== operatorBtn.value)) {
             operate(operator);
             storedValue.textContent = `${operand1} ${operatorSymbol}`;
             // unexpected result will occur if this variable wasn't re-initialize
@@ -120,4 +121,4 @@ decimalBtn.addEventListener('click', () => {
         operand2 = displayedValue.textContent.concat('.');
         displayedValue.textContent = operand2;
     }
-})
+});

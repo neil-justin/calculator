@@ -22,7 +22,7 @@ body {
     margin: 0 auto;
 }
 
-.display {
+.screen {
     display: flex;
     flex-direction: column;
     height: 90px;
@@ -32,7 +32,7 @@ body {
 }
 
 .stored-value,
-.current-value {
+.displayed-value {
     text-align: end;
 }
 
@@ -41,7 +41,7 @@ body {
     font-size: 18px;
 }
 
-.current-value {
+.displayed-value {
     height: 30px;
     font-size: 35px;
 }

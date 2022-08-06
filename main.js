@@ -64,9 +64,14 @@ operatorsBtn.forEach(operatorBtn => {
         } else {
             storedValue.textContent = `${operand1} ${operatorSymbol}`;
         }
-        /* this has to be placed at the bottom of this block in order for complex expression,
-            that has dissimilar operator (e.g. 2 + 3 - 2), to get evaluated correctly */
+        /* this has to be placed anywhere below the first if/else in order for
+        complex expression, that has dissimilar operator (e.g. 2 + 3 - 2), to
+        get evaluated correctly */
         operator = operatorBtn.value;
+
+        if (decimalBtn.disabled) {
+            decimalBtn.disabled = false;
+        }
     });
 });
 
@@ -100,3 +105,19 @@ function operate(operator) {
             return displayedValue.textContent = operand1;
     }
 }
+
+const decimalBtn = document.querySelector('.decimal-btn')
+decimalBtn.addEventListener('click', () => {
+    if (displayedValue.textContent.includes('.')) {
+        decimalBtn.disabled = true;
+        displayedValue.textContent = displayedValue.textContent.replace('.', '');
+    }
+
+    if (displayedValue.textContent === operand1) {
+        operand1 = displayedValue.textContent.concat('.');
+        displayedValue.textContent = operand1;
+    } else {
+        operand2 = displayedValue.textContent.concat('.');
+        displayedValue.textContent = operand2;
+    }
+})

@@ -22,7 +22,7 @@ let operand2;
 const numbersBtn = document.querySelectorAll('.numbers-btn');
 numbersBtn.forEach(numberBtn => {
     numberBtn.addEventListener('click', () => {
-        if (displayedValue.innerText.length > 15) {
+        if (displayedValue.innerText.length > 14) {
             numbersBtn.forEach(numberBtn => {
                 numberBtn.disabled = true;
             });
@@ -72,7 +72,7 @@ operatorsBtn.forEach(operatorBtn => {
 
         if (decimalBtn.disabled) decimalBtn.disabled = false;
 
-        if (displayedValue.innerText.length > 15) displayedValue.textContent = '';
+        if (displayedValue.innerText.length > 14) displayedValue.textContent = '';
         numbersBtn.forEach(numberBtn => numberBtn.disabled = false);
     });
 });
@@ -87,6 +87,11 @@ equalBtn.addEventListener('click', () => {
     }
     // unexpected evaluation will occur if this variable wasn't re-initialize
     operand2 = '';
+
+    if (storedValue.innerText.length > 36) {
+        storedValue.textContent = '';
+        displayedValue.textContent = 'Error';
+    }
 });
 
 function operate(operator) {

@@ -41,11 +41,6 @@ numbersBtn.forEach(numberBtn => {
                 displayedValue.textContent = operand2;
             }
         }
-
-        if (typeof numberBtn.value === 'string') {
-            operand1 = parseInt(operand1);
-            operand2 = parseInt(operand2);
-        }
     });
 });
 
@@ -75,9 +70,13 @@ const equalButton = document.querySelector('.equal-btn');
 equalButton.addEventListener('click', () => {
     storedValue.textContent = `${operand1} ${operatorSymbol} ${operand2} =`;
     operate(operator);
+    // unexpected evaluation will occur if this variable wasn't re-initialize
+    operand2 = '';
 });
 
 function operate(operator) {
+    operand1 = parseInt(operand1);
+    operand2 = parseInt(operand2);
     switch (operator) {
         case '+':
             operand1 = add(operand1, operand2);

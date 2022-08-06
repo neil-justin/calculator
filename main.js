@@ -70,17 +70,21 @@ operatorsBtn.forEach(operatorBtn => {
     });
 });
 
-const equalButton = document.querySelector('.equal-btn');
-equalButton.addEventListener('click', () => {
-    storedValue.textContent = `${operand1} ${operatorSymbol} ${operand2} =`;
-    operate(operator);
+const equalBtn = document.querySelector('.equal-btn');
+equalBtn.addEventListener('click', () => {
+    if (!operand2) {
+        equalBtn.disabled === true;
+    } else {
+        storedValue.textContent = `${operand1} ${operatorSymbol} ${operand2} =`;
+        operate(operator);
+    }
     // unexpected evaluation will occur if this variable wasn't re-initialize
     operand2 = '';
 });
 
 function operate(operator) {
-    operand1 = parseInt(operand1);
-    operand2 = parseInt(operand2);
+    operand1 = +operand1;
+    operand2 = +operand2;
     switch (operator) {
         case '+':
             operand1 = add(operand1, operand2);

@@ -3,15 +3,15 @@ function add(x, y) {
 }
 
 function subtract(x, y) {
-    return +(x - y).toFixed(2);
+    return x - y.toFixed(2);
 }
 
 function multiply(x, y) {
-    return +(x * y).toFixed(2);
+    return x * y.toFixed(2);
 }
 
 function divide(x, y) {
-    return +(x / y).toFixed(2);
+    return x / y.toFixed(2);
 }
 
 const storedValue = document.querySelector('.stored-value');

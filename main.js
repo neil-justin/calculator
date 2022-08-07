@@ -1,17 +1,17 @@
 function add(x, y) {
-    return x + y;
+    return +(x + y).toFixed(2);
 }
 
 function subtract(x, y) {
-    return x - y;
+    return +(x - y).toFixed(2);
 }
 
 function multiply(x, y) {
-    return x * y;
+    return +(x * y).toFixed(2);
 }
 
 function divide(x, y) {
-    return x / y;
+    return +(x / y).toFixed(2);
 }
 
 const storedValue = document.querySelector('.stored-value');
@@ -102,6 +102,7 @@ equalBtn.addEventListener('click', () => {
 function operate(operator) {
     operand1 = +operand1;
     operand2 = +operand2;
+
     switch (operator) {
         case '+':
             operand1 = add(operand1, operand2);
@@ -136,6 +137,16 @@ decimalBtn.addEventListener('click', () => {
 
 const undoBtn = document.querySelector('.undo-btn');
 undoBtn.addEventListener('click', () => {
+    // start afresh when a user tried to undo the result of an expression
+    const storedValueOperand = storedValue.textContent.split(' ');
+    if (+storedValueOperand[0] + +storedValueOperand[2] === operand1) {
+        operand1 = 0;
+        operand2 = '';
+        operator = '';
+        displayedValue.textContent = '0';
+        storedValue.textContent = '';
+    }
+
     displayedValue.textContent = displayedValue.textContent
         .substring(0, displayedValue.textContent.length - 1);
 

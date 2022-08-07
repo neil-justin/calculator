@@ -27,7 +27,7 @@ numbersBtn.forEach(numberBtn => {
                 numberBtn.disabled = true;
             });
         } else if (storedValue.textContent) {
-            if (operand2) {
+            if (operand2 != 0) {
                 if (displayedValue.textContent === '0') {
                     operand1 = `${numberBtn.value}`;
                     displayedValue.textContent = operand1;

@@ -82,16 +82,16 @@ equalBtn.addEventListener('click', () => {
     if (!operand2) {
         equalBtn.disabled === true;
     } else {
-        storedValue.textContent = `${operand1} ${operatorSymbol} ${operand2} =`;
-        operate(operator);
+        if (operand1.length > 15 && operand2.length > 15) {
+            storedValue.textContent = '';
+            displayedValue.textContent = 'Error';
+        } else {
+            storedValue.textContent = `${operand1} ${operatorSymbol} ${operand2} =`;
+            operate(operator);
+        }
     }
     // unexpected evaluation will occur if this variable wasn't re-initialize
     operand2 = '';
-
-    if (storedValue.innerText.length > 36) {
-        storedValue.textContent = '';
-        displayedValue.textContent = 'Error';
-    }
 });
 
 function operate(operator) {

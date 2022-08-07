@@ -139,8 +139,11 @@ decimalBtn.addEventListener('click', () => {
 
 const undoBtn = document.querySelector('.undo-btn');
 undoBtn.addEventListener('click', () => {
-    if (displayedValue.textContent == 0) {
+    if (displayedValue.textContent == 0 || displayedValue.textContent.length === 1) {
         undoBtn.disabled = true;
+    } else {
+        displayedValue.textContent = displayedValue.textContent
+            .substring(0, displayedValue.textContent.length - 1);
     }
 
     // start afresh when a user tried to undo the result of an expression
@@ -153,17 +156,14 @@ undoBtn.addEventListener('click', () => {
         storedValue.textContent = '';
     }
 
-    if (operand1 != 0) {
-        displayedValue.textContent = displayedValue.textContent
-            .substring(0, displayedValue.textContent.length - 1);
-    }
-
     if (operand1.length - displayedValue.textContent.length === 1) {
         operand1 = displayedValue.textContent;
-    } else {
+    }
+    if (operand1.length - displayedValue.textContent.length === 1) {
         operand2 = displayedValue.textContent;
     }
-});
+}
+);
 
 const clearBtn = document.querySelector('.clear-btn');
 clearBtn.addEventListener('click', () => {

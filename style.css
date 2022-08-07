@@ -10,6 +10,16 @@ html {
 
 body {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: sans-serif;
+    min-height: 100vh;
+}
+
+.calculator,
+.screen,
+button {
+    border-radius: 5px;
 }
 
 .calculator {
@@ -20,15 +30,17 @@ body {
     width: 375px;
     padding: 25px;
     margin: 0 auto;
+    background-color: #302e2f;
+    box-shadow: 0 0 25px lightgray;
 }
 
 .screen {
     display: flex;
     flex-direction: column;
     height: 90px;
-    background-color: lightgray;
     width: 100%;
     padding: 15px;
+    background-color: #d3e1e2;
 }
 
 .stored-value,
@@ -48,18 +60,12 @@ body {
 
 .btns-cntr {
     display: flex;
-    flex-direction: column;
-    row-gap: 10px;
-    width: 100%;
-}
-
-.btns-divider {
-    display: flex;
     flex-flow: row wrap;
     gap: 10px;
 }
 
 button {
+    color: #fbfbfb;
     width: 73px;
     height: 50px;
     flex: 1 1 auto;
@@ -71,6 +77,14 @@ button {
 .undo-btn {
     width: 157.5px;
     height: 50px;
+    border: 1px solid hsl(25, 37%, 50%);
+    background-color: hsl(25, 37%, 50%);
+}
+
+.clear-btn:active,
+.undo-btn:active {
+    border: 1px solid hsl(25, 37%, 43%);
+    background-color: hsl(25, 37%, 43%);
 }
 
 .clear-btn {
@@ -79,4 +93,45 @@ button {
 
 .undo-btn {
     flex: 1 1 auto;
+}
+
+.numbers-btn,
+.decimal-btn {
+    border: 1px solid hsl(33, 6%, 37%);
+    background-color: hsl(33, 6%, 37%);
+}
+
+.numbers-btn:active,
+.decimal-btn:active {
+    border: 1px solid hsl(40, 2%, 34%);
+    background-color: hsl(40, 2%, 34%);
+}
+
+.operators-btn,
+.equal-btn {
+    border: 1px solid hsl(30, 5%, 25%);
+    background-color: hsl(30, 5%, 25%);
+}
+
+.operators-btn:active,
+.equal-btn:active {
+    border: 1px solid hsl(30, 5%, 22%);
+    background-color: hsl(30, 5%, 22%);
+}
+
+footer {
+    margin-top: 30px;
+}
+
+.footer-text {
+    font-size: large;
+    text-align: center;
+}
+
+.footer-text a {
+    color: black;
+}
+
+.footer-text a:hover {
+    text-decoration-line: none;
 }

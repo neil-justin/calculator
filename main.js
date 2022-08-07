@@ -87,7 +87,7 @@ equalBtn.addEventListener('click', () => {
     if (!operand2) {
         equalBtn.disabled === true;
     } else {
-        if (operand1.length > 15 && operand2.length > 15) {
+        if (operand1.length > 14 && operand2.length > 14) {
             storedValue.textContent = '';
             displayedValue.textContent = 'Error';
         } else {

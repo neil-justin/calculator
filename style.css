@@ -68,8 +68,15 @@ button {
 }
 
 .clear-btn,
-.delete-btn {
+.undo-btn {
     width: 157.5px;
     height: 50px;
+}
+
+.clear-btn {
+    flex: 0 1 auto;
+}
+
+.undo-btn {
     flex: 1 1 auto;
 }

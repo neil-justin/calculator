@@ -128,3 +128,22 @@ decimalBtn.addEventListener('click', () => {
         displayedValue.textContent = operand2;
     }
 });
+
+const undoBtn = document.querySelector('.undo-btn');
+undoBtn.addEventListener('click', () => {
+    displayedValue.textContent = displayedValue.textContent
+        .substring(0, displayedValue.textContent.length - 1);
+
+    (operand1.length - displayedValue.textContent.length === 1) ?
+        operand1 = displayedValue.textContent :
+        operand2 = displayedValue.textContent;
+});
+
+const clearBtn = document.querySelector('.clear-btn');
+clearBtn.addEventListener('click', () => {
+    operand1 = 0;
+    operand2 = '';
+    operator = '';
+    displayedValue.textContent = '0';
+    storedValue.textContent = '';
+});

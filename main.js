@@ -30,8 +30,13 @@ numbersBtn.forEach(numberBtn => {
 
         if (storedValue.textContent) {
             if (operand2) {
-                operand2 += `${numberBtn.value}`;
-                displayedValue.textContent = operand2;
+                if (displayedValue.textContent === '0') {
+                    operand1 = `${numberBtn.value}`;
+                    displayedValue.textContent = operand1;
+                } else {
+                    operand2 += `${numberBtn.value}`;
+                    displayedValue.textContent = operand2;
+                }
             } else {
                 operand2 = `${numberBtn.value}`;
                 displayedValue.textContent = operand2;

@@ -26,11 +26,7 @@ numbersBtn.forEach(numberBtn => {
             numbersBtn.forEach(numberBtn => {
                 numberBtn.disabled = true;
             });
-        }
-
-        if (undoBtn.disabled) undoBtn.disabled = false;
-
-        if (storedValue.textContent) {
+        } else if (storedValue.textContent) {
             if (operand2) {
                 if (displayedValue.textContent === '0') {
                     operand1 = `${numberBtn.value}`;
@@ -52,6 +48,8 @@ numbersBtn.forEach(numberBtn => {
                 displayedValue.textContent = operand1;
             }
         }
+
+        if (undoBtn.disabled) undoBtn.disabled = false;
     });
 });
 
@@ -74,7 +72,7 @@ operatorsBtn.forEach(operatorBtn => {
         }
         /* this has to be placed anywhere below the first if/else in order for
         complex expression, that has dissimilar operator (e.g. 2 + 3 - 2), to
-        get evaluated correctly */
+        get evaluated accurate */
         operator = operatorBtn.value;
 
         if (decimalBtn.disabled) decimalBtn.disabled = false;
@@ -126,9 +124,7 @@ decimalBtn.addEventListener('click', () => {
     if (displayedValue.textContent.includes('.')) {
         decimalBtn.disabled = true;
         displayedValue.textContent = displayedValue.textContent.replace('.', '');
-    }
-
-    if (displayedValue.textContent === operand1) {
+    } else if (displayedValue.textContent === operand1) {
         operand1 = displayedValue.textContent.concat('.');
         displayedValue.textContent = operand1;
     } else {
@@ -139,13 +135,6 @@ decimalBtn.addEventListener('click', () => {
 
 const undoBtn = document.querySelector('.undo-btn');
 undoBtn.addEventListener('click', () => {
-    if (displayedValue.textContent == 0 || displayedValue.textContent.length === 1) {
-        undoBtn.disabled = true;
-    } else {
-        displayedValue.textContent = displayedValue.textContent
-            .substring(0, displayedValue.textContent.length - 1);
-    }
-
     // start afresh when a user tried to undo the result of an expression
     const storedValueOperand = storedValue.textContent.split(' ');
     if (+storedValueOperand[0] + +storedValueOperand[2] === operand1) {
@@ -154,16 +143,15 @@ undoBtn.addEventListener('click', () => {
         operator = '';
         displayedValue.textContent = '0';
         storedValue.textContent = '';
+    } else {
+        if (displayedValue.textContent == 0 || operand1.length === 1) {
+            undoBtn.disabled = true;
+        } else {
+            displayedValue.textContent = displayedValue.textContent
+                .substring(0, displayedValue.textContent.length - 1);
+        }
     }
-
-    if (operand1.length - displayedValue.textContent.length === 1) {
-        operand1 = displayedValue.textContent;
-    }
-    if (operand1.length - displayedValue.textContent.length === 1) {
-        operand2 = displayedValue.textContent;
-    }
-}
-);
+});
 
 const clearBtn = document.querySelector('.clear-btn');
 clearBtn.addEventListener('click', () => {

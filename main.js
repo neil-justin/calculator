@@ -18,7 +18,7 @@ const storedValue = document.querySelector('.stored-value');
 const displayedValue = document.querySelector('.displayed-value');
 
 let operand1 = 0;
-let operand2;
+let operand2 = 0;
 const numbersBtn = document.querySelectorAll('.numbers-btn');
 numbersBtn.forEach(numberBtn => {
     numberBtn.addEventListener('click', () => {
@@ -137,19 +137,27 @@ const undoBtn = document.querySelector('.undo-btn');
 undoBtn.addEventListener('click', () => {
     // start afresh when a user tried to undo the result of an expression
     const storedValueOperand = storedValue.textContent.split(' ');
+
     if (+storedValueOperand[0] + +storedValueOperand[2] === operand1) {
         operand1 = 0;
         operand2 = '';
         operator = '';
         displayedValue.textContent = '0';
         storedValue.textContent = '';
-    } else {
-        if (displayedValue.textContent == 0 || operand1.length === 1) {
-            undoBtn.disabled = true;
+    } else if (displayedValue.textContent.length > 1) {
+        if (operand2 === displayedValue.textContent) {
+            displayedValue.textContent = displayedValue.textContent
+                .substring(0, displayedValue.textContent.length - 1);
+
+            operand2 = operand2.substring(0, operand2.length - 1);
         } else {
             displayedValue.textContent = displayedValue.textContent
                 .substring(0, displayedValue.textContent.length - 1);
+
+            operand1 = operand1.substring(0, operand1.length - 1);
         }
+    } else {
+        undoBtn.disabled = true;
     }
 });
 

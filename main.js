@@ -135,9 +135,8 @@ decimalBtn.addEventListener('click', () => {
 
 const undoBtn = document.querySelector('.undo-btn');
 undoBtn.addEventListener('click', () => {
-    // start afresh when a user tried to undo the result of an expression
     const storedValueOperand = storedValue.textContent.split(' ');
-
+    // start afresh when a user tried to undo the result of an expression
     if (+storedValueOperand[0] + +storedValueOperand[2] === operand1) {
         operand1 = 0;
         operand2 = '';

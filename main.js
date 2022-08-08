@@ -1,17 +1,17 @@
 function add(x, y) {
-    return +(x + y).toFixed(2);
+    return x + y;
 }
 
 function subtract(x, y) {
-    return x - y.toFixed(2);
+    return x - y;
 }
 
 function multiply(x, y) {
-    return x * y.toFixed(2);
+    return x * y;
 }
 
 function divide(x, y) {
-    return x / y.toFixed(2);
+    return x / y;
 }
 
 const storedValue = document.querySelector('.stored-value');
@@ -105,16 +105,16 @@ function operate(operator) {
 
     switch (operator) {
         case '+':
-            operand1 = add(operand1, operand2);
+            operand1 = add(operand1, operand2).toFixed(2);
             return displayedValue.textContent = operand1;
         case '-':
-            operand1 = subtract(operand1, operand2);
+            operand1 = subtract(operand1, operand2).toFixed(2);
             return displayedValue.textContent = operand1;
         case '*':
-            operand1 = multiply(operand1, operand2);
+            operand1 = multiply(operand1, operand2).toFixed(2);
             return displayedValue.textContent = operand1;
         case '/':
-            operand1 = divide(operand1, operand2);
+            operand1 = divide(operand1, operand2).toFixed(2);
             return displayedValue.textContent = operand1;
     }
 }

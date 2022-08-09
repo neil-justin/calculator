@@ -106,17 +106,32 @@ function operate(operator) {
     switch (operator) {
         case '+':
             operand1 = add(operand1, operand2);
-            return displayedValue.textContent = operand1;
+            break;
         case '-':
             operand1 = subtract(operand1, operand2);
-            return displayedValue.textContent = operand1;
+            break;
         case '*':
             operand1 = multiply(operand1, operand2);
-            return displayedValue.textContent = operand1;
+            break;
         case '/':
             operand1 = divide(operand1, operand2);
-            return displayedValue.textContent = operand1;
     }
+
+    checkDecimal(operand1);
+    displayedValue.textContent = operand1;
+    return operand1
+}
+
+function checkDecimal(int) {
+    const intString = int + '';
+    let intArray;
+
+    if (intString.includes('.')) {
+        intArray = intString.split('.');
+        if (intArray[1].length > 2) {
+            return operand1 = +(int.toFixed(2));
+        } return int;
+    } return int;
 }
 
 const decimalBtn = document.querySelector('.decimal-btn')

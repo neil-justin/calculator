@@ -2,7 +2,7 @@
 An online calculator that works with basic arithmetic operations and supports working with decimal numbers.
 
 ## Preview
-See the game for yourself by clicking [this](https://neil-justin.github.io/calculator/)
+Preview the calculator for yourself by clicking [this](https://neil-justin.github.io/calculator/)
 
 
 ![Calculator](calculator-preview.png)

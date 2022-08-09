@@ -1,17 +1,17 @@
 function add(x, y) {
-    return +(x + y).toFixed(2);
+    return +x + +y;
 }
 
 function subtract(x, y) {
-    return (x - y).toFixed(2);
+    return x - y;
 }
 
 function multiply(x, y) {
-    return (x * y).toFixed(2);
+    return x * y;
 }
 
 function divide(x, y) {
-    return (x / y).toFixed(2);
+    return x / y;
 }
 
 const storedValue = document.querySelector('.stored-value');
